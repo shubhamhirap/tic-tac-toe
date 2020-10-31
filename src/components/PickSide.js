@@ -45,7 +45,7 @@ const PickSide = (props) => {
             labelPlacement="top"
           />
         </RadioGroup>
-        <Link to={{pathname: "/tic-tac-toe", state: {choice}}}>
+        <Link to={{pathname: "/tic-tac-toe", state: {choice, sideValue}}}>
           <Button
             className="mt-5"
             variant="contained"

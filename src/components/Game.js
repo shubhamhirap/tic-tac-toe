@@ -10,7 +10,6 @@ const Game = (props) => {
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
   const winner = CheckWinner(history[stepNumber]);
-//   const [occupiedSquares, setOccupiedSquares] = useState(0);
 
   const handleClick = (i) => {
     const timeInHistory = history.slice(0, stepNumber + 1);
@@ -18,13 +17,12 @@ const Game = (props) => {
     const squares = [...current];
 
     if (winner || squares[i]) return;
-
-    squares[i] = xIsNext ? "X" : "O";
+    squares[i] = choice.sideValue === 'o' ? xIsNext ? "O" : "X" : xIsNext ? "X" : "O" ;
     setHistory([...timeInHistory, squares]);
     setStepNumber(timeInHistory.length);
     setXIsNext(!xIsNext);
-    
-};
+    console.log(choice);
+  };
 
   return (
     <div className="gameStyle">
@@ -46,7 +44,7 @@ const Game = (props) => {
         <div>
           <Link to="/">
             <Button
-                className="mt-3"
+              className="mt-3"
               variant="contained"
               color="primary"
               style={{ borderRadius: 25 }}
@@ -56,7 +54,7 @@ const Game = (props) => {
           </Link>
         </div>
       ) : (
-        ''
+        ""
       )}
     </div>
   );
